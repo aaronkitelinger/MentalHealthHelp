@@ -1,6 +1,6 @@
 package com.example.mentalhealthhelp.mentalhealthhelp;
 
-import lombok.Data;
+        import lombok.Data;
 
 public @Data class DisorderInfoDTO {
 
@@ -9,7 +9,4 @@ public @Data class DisorderInfoDTO {
     private String disorderDescription;
     private int DSM5Page;
     private float percentOfPeople;
-
-
-
 }
