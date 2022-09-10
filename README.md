@@ -52,14 +52,6 @@ mental health condition where there are resources and basic definitions of each 
 **When**: Someone is on the disorder info page
 **Then**: Their experience will be linked to that page
 
-### Example
-**Given**:  
-**When**:
-**Then**:
-
-## Insert Storyboard here
-
-
 ## DTO JSON
 
 ## Team Members and Scrum Roles
