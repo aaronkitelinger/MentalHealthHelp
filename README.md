@@ -52,6 +52,9 @@ mental health condition where there are resources and basic definitions of each 
 **When**: Someone is on the disorder info page
 **Then**: Their experience will be linked to that page
 
+## CLASS DIAGRAM
+![Class Diagram](https://github.com/aaronkitelinger/MentalHealthHelp/blob/a1b037f59eeb2d040030d74a30ffe07e20aa4460/disorder-help-class-diagram.drawio.png?raw=true)
+
 ## DTO JSON
 
 ## Team Members and Scrum Roles
