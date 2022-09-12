@@ -57,6 +57,27 @@ mental health condition where there are resources and basic definitions of each 
 
 ## DTO JSON
 
+This is what we plan to bring to the app.
+
+> {
+>   "type" : object",
+>   "properties" : {
+>     "disorderID" : {
+>      "type" : "int"
+>     },
+>     "disorderName" : {
+>       "type" : "String"
+>     }, 
+>     "dsm5Page" : {
+>       "type" : "int"
+>     }
+>     "percentOfPeople" : {
+>       "type" : "float"
+>     }
+>    }
+>  }
+   : {"type" : "String"} "dsm5Page" : {"type" : "int"} "percentOfPeople" : {"type" : "float"} } }
+
 ## Team Members and Scrum Roles
 
 Aaron Kitelinger – Project Owner/Scrum/DevOps/GitHub Administrator
