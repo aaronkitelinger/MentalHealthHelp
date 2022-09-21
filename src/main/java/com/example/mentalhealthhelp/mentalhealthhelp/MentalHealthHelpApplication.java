@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MentalHealthHelpApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(MentalHealthHelpApplication.class, args);
 	}
-
 }

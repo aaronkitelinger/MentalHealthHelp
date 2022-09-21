@@ -1,9 +1,8 @@
-package com.example.mentalhealthhelp.mentalhealthhelp;
+package com.example.mentalhealthhelp.mentalhealthhelp.dto;
 
 import lombok.Data;
 
 public @Data class DisorderInfoDTO {
-
     private int disorderId;
     private String disorderName;
     private String disorderDescription;
