@@ -1,6 +1,8 @@
 package com.mentalhealthapi.mentalhealthapi.dto;
 
-public class Disorder {
+import lombok.Data;
+
+public @Data class Disorder {
     private int id;
     private String name;
     private String description;
