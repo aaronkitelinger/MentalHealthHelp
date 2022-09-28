@@ -12,29 +12,37 @@ import static org.springframework.test.util.AssertionErrors.assertEquals;
 @SpringBootTest
 class MentalHealthApiApplicationTests {
 
-        @Autowired
-         private IDisorderService disorderService;
-         private Disorder disorder;
+    @Autowired
+    private IDisorderService disorderService;
+    private Disorder disorder;
+
     @Test
     void contextLoads() {
     }
 
     @Test
-    void fetchdisorderbyID1_returnsdepression(){
+    void fetchdisorderbyName_returnsdepression(){
         DataAvailable();
-        whenSearchDisorderWithID1();
-        ReturnsDepressionForID1();
+        whenSearchDisorderWithNameDepression();
+        ReturnsDepressionForNameDepression();
     }
 
     private void DataAvailable() {
     }
 
-    private void whenSearchDisorderWithID1() {
+    private void whenSearchDisorderWithNameDepression() {
         disorder = disorderService.fetchbyName("Depression");
     }
 
-    private void ReturnsDepressionForID1() {
+    private void ReturnsDepressionForNameDepression() {
         String name = disorder.getName();
         assertEquals("Should be Depression","Depression",name);
     }
+
+
+
+
+
+
+
 }
