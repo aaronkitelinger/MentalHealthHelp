@@ -1,13 +1,8 @@
-package com.mentalhealthapi.mentalhealthapi.service;
+package com.mentalhealthapi.mentalhealthapi.Service;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 
 public interface IDisorderService {
 
-    /**
-     * Fetch disorder given id
-     * @param id
-     * @return
-     */
-    Disorder fetchById(int id);
+    Disorder fetchbyName(String name);
 }

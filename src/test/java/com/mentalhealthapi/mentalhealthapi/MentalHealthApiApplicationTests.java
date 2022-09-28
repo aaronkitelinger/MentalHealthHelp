@@ -38,9 +38,25 @@ class MentalHealthApiApplicationTests {
         String name = disorder.getName();
         assertEquals("Should be Depression","Depression",name);
     }
+    @Test
+    void CreateUserandReturnUsername(){
+        GetUserInfoFromView();
+        CreateUser();
+        ReturnInfomationretrievedfromView();
+    }
+
+    private void GetUserInfoFromView() {
+
+    }
 
 
+    private void CreateUser() {
 
+    }
+
+
+    private void ReturnInfomationretrievedfromView() {
+    }
 
 
 
