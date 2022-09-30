@@ -19,7 +19,6 @@ public class MentalHealthController {
      */
     @RequestMapping("/")
     public String index() {
-        // has to be the same as the template html page inside 'resources' folder
         return "start";
     }
 
@@ -28,7 +27,8 @@ public class MentalHealthController {
      * @return disorders page
      */
     @GetMapping("/disorders")
-    public ResponseEntity fetchAllDisorders() {
+    public ResponseEntity fetchAllDisorders()
+    {
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -37,7 +37,8 @@ public class MentalHealthController {
      * @return specific disorder page
      */
     @GetMapping("/disorders/{name}/")
-    public ResponseEntity fetchDisorder(@PathVariable("name") String name) {
+    public ResponseEntity fetchDisorder(@PathVariable("name") String name)
+    {
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -46,7 +47,8 @@ public class MentalHealthController {
      * @return a list of blogs given disorder name
      */
     @GetMapping("/disorders/{name}/blogs/")
-    public ResponseEntity fetchBlogs(@PathVariable("name") String name) {
+    public ResponseEntity fetchBlogs(@PathVariable("name") String name)
+    {
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -56,21 +58,17 @@ public class MentalHealthController {
      */
     @PostMapping(value = "/disorders/{name}/blog", consumes = "application/json", produces = "application/json")
     public Blog createBlog(@PathVariable("name") String name, @RequestBody Blog blog) {
-        // we're going to need a user id passed here as well. for now, let's not worry about it
-
-        // for not, just return created blog as a stub
         return blog;
     }
 
     /**
      * Delete a blog
-     * @param name
-     * @param blog
+     * @param //name
+     * @param //blog
      * @return
      */
     @DeleteMapping("/disorders/{name}/blog/{id}/")
     public ResponseEntity deleteBlog(@PathVariable("name") String name, @PathVariable("id") int id) {
-        // we're going to need a user id passed here as well. for now, let's not worry about it
         return new ResponseEntity(HttpStatus.OK);
     }
 }

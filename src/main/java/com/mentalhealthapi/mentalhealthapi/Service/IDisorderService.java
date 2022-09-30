@@ -4,5 +4,5 @@ import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 
 public interface IDisorderService {
 
-    Disorder fetchbyName(String name);
+    Disorder fetchByName(String name);
 }

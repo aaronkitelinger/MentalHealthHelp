@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class DisorderServiceStub implements IDisorderService {
 
     @Override
-    public Disorder fetchbyName(String name) {
+    public Disorder fetchByName(String name) {
         return null;
     }
 }
