@@ -1,5 +1,7 @@
 package com.mentalhealthapi.mentalhealthapi;
 
+import com.mentalhealthapi.mentalhealthapi.dto.User;
+import com.mentalhealthapi.mentalhealthapi.Service.IUserService;
 import com.mentalhealthapi.mentalhealthapi.Service.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,10 @@ class MentalHealthApiApplicationTests {
     @Autowired
     private IDisorderService disorderService;
     private Disorder disorder;
+
+    @Autowired
+    private IUserService userService;
+    private User user = new User();
 
     @Test
     void contextLoads() {
@@ -47,15 +53,21 @@ class MentalHealthApiApplicationTests {
 
     private void GetUserInfoFromView() {
 
+        String username = "Kiteliad";
+        user.setUsername(username);
+
     }
 
 
     private void CreateUser() {
-
+        user = userService.createUser(user);
     }
 
 
     private void ReturnInfomationretrievedfromView() {
+        String username = user.getUsername();
+        assertEquals("Should be Kiteliad","Kiteliad",username);
+
     }
 
 
