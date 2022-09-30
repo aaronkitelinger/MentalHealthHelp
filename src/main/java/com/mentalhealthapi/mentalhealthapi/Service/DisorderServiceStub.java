@@ -4,7 +4,7 @@ import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DisorderServiceStub implements IDisorderService {
+public class DisorderServiceStub implements com.mentalhealthapi.mentalhealthapi.Service.IDisorderService {
 
     @Override
     public Disorder fetchbyName(String name) {
