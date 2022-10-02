@@ -19,7 +19,7 @@ public class MentalHealthController {
      */
     @RequestMapping("/")
     public String index() {
-        // has to be the same as the template html page inside 'resources' folder
+        // TODO(Spurlock): Same as template Index in 'Resources' folder.
         return "start";
     }
 
@@ -29,7 +29,11 @@ public class MentalHealthController {
      */
     @GetMapping("/disorders")
     public ResponseEntity fetchAllDisorders() {
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -37,7 +41,7 @@ public class MentalHealthController {
      * @return specific disorder page
      */
     @GetMapping("/disorders/{name}/")
-    public ResponseEntity fetchDisorder(@PathVariable("name") String name) {
+    public ResponseEntity fetchDisorderByName(@PathVariable("name") String name) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -46,7 +50,7 @@ public class MentalHealthController {
      * @return a list of blogs given disorder name
      */
     @GetMapping("/disorders/{name}/blogs/")
-    public ResponseEntity fetchBlogs(@PathVariable("name") String name) {
+    public ResponseEntity fetchBlogsByDisorder(@PathVariable("name") String name) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -56,21 +60,20 @@ public class MentalHealthController {
      */
     @PostMapping(value = "/disorders/{name}/blog", consumes = "application/json", produces = "application/json")
     public Blog createBlog(@PathVariable("name") String name, @RequestBody Blog blog) {
-        // we're going to need a user id passed here as well. for now, let's not worry about it
-
-        // for not, just return created blog as a stub
+        // TODO(Spurlock): Pass userId.
+        // TODO(Spurlock): Make Blog return more than a stub.
         return blog;
     }
 
     /**
      * Delete a blog
      * @param name
-     * @param blog
+     * @param id
      * @return
      */
     @DeleteMapping("/disorders/{name}/blog/{id}/")
     public ResponseEntity deleteBlog(@PathVariable("name") String name, @PathVariable("id") int id) {
-        // we're going to need a user id passed here as well. for now, let's not worry about it
+        // TODO(Spurlock): Pass userId.
         return new ResponseEntity(HttpStatus.OK);
     }
 }
