@@ -41,6 +41,12 @@ class MentalHealthApiApplicationTests {
     }
 
     private void ReturnsDepressionForNameDepression() {
+        Disorder disorder = new Disorder();
+        disorder.setId(0);
+        disorder.setName("Depression");
+        disorder.setDescription("Disorder 0");
+        disorder.setPageNumber("20");
+        disorder.setPopulationPercent((float) 0.7);
         String name = disorder.getName();
         assertEquals("Should be Depression","Depression",name);
     }

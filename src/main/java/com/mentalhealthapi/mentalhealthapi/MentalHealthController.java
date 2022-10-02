@@ -24,7 +24,7 @@ public class MentalHealthController {
     }
 
     /**
-     * Fetch a list of all disorders.
+     * Fetch a list of all disorders
      * @return disorders page
      */
     @GetMapping("/disorders")
