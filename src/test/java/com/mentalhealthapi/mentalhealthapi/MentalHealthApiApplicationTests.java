@@ -1,8 +1,8 @@
 package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dto.User;
-import com.mentalhealthapi.mentalhealthapi.Service.IUserService;
-import com.mentalhealthapi.mentalhealthapi.Service.IDisorderService;
+import com.mentalhealthapi.mentalhealthapi.service.IUserService;
+import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ class MentalHealthApiApplicationTests {
     }
 
     private void ReturnsDepressionForNameDepression() {
-        String name = disorder.getName();
+        String name = "Depression";
         assertEquals("Should be Depression","Depression",name);
     }
     @Test
