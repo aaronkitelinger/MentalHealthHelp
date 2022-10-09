@@ -24,12 +24,21 @@ public class MentalHealthController {
     }
 
     /**
-     * Fetch a list of all disorders.
-     * @return disorders page
+     * Go to Disorders page on /disorders
+     * @return
      */
-    @GetMapping("/disorders")
-    public ResponseEntity fetchAllDisorders() {
-        return new ResponseEntity(HttpStatus.OK);
+    @RequestMapping("/disorders")
+    public String disorders() {
+        return "disorders";
+    }
+
+    /**
+     * Go to Your Stories page on /blog
+     * @return
+     */
+    @RequestMapping("/blog")
+    public String blog() {
+        return "blog";
     }
 
     /**
