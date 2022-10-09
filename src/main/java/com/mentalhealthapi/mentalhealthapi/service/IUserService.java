@@ -1,8 +1,7 @@
-package com.mentalhealthapi.mentalhealthapi.Service;
+package com.mentalhealthapi.mentalhealthapi.service;
 
 import com.mentalhealthapi.mentalhealthapi.dto.User;
 
 public interface IUserService {
-
     User createUser(User user);
 }
