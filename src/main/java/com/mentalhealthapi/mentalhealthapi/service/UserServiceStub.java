@@ -5,8 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserServiceStub implements IUserService {
-
-
     @Override
     public User createUser(User user) {
         return user;
