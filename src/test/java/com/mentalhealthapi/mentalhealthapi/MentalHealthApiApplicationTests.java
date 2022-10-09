@@ -37,7 +37,7 @@ class MentalHealthApiApplicationTests {
     }
 
     private void whenSearchDisorderWithNameDepression() {
-        disorder = disorderService.fetchbyName("Depression");
+        disorder = disorderService.fetchByName("Depression");
     }
 
     private void ReturnsDepressionForNameDepression() {
