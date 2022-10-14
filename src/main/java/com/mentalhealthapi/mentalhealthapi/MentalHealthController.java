@@ -2,17 +2,22 @@ package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
+import com.mentalhealthapi.mentalhealthapi.service.DisorderServiceStub;
+import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Here is our end points. The C of MVC
  */
 @Controller
 public class MentalHealthController {
-
     /**
      * Root end point (/).
      * @return index page
@@ -24,12 +29,23 @@ public class MentalHealthController {
     }
 
     /**
-     * Fetch a list of all disorders.
-     * @return disorders page
+     * Go to Disorders page on /disorders
+     * @return
      */
-    @GetMapping("/disorders")
-    public ResponseEntity fetchAllDisorders() {
-        return new ResponseEntity(HttpStatus.OK);
+    @RequestMapping("/disorders")
+    public String disorders(Model model) {
+        IDisorderService disorderService = new DisorderServiceStub();
+        model.addAttribute("disorders", disorderService.fetchAllDisorders());
+        return "disorders";
+    }
+
+    /**
+     * Go to Your Stories page on /blog
+     * @return
+     */
+    @RequestMapping("/blog")
+    public String blog() {
+        return "blog";
     }
 
     /**
