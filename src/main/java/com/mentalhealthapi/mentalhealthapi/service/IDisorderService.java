@@ -1,7 +1,11 @@
 package com.mentalhealthapi.mentalhealthapi.service;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public interface IDisorderService {
 
     /**
@@ -17,4 +21,10 @@ public interface IDisorderService {
      * @return A disorder object.
      */
     Disorder fetchById(int id);
+
+    /**
+     * Fetch all disorders
+     * @return
+     */
+    List<Disorder> fetchAllDisorders();
 }
