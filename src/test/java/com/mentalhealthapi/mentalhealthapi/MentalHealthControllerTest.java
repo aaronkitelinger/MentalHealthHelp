@@ -24,6 +24,14 @@ public class MentalHealthControllerTest {
     IDisorderService disorderService;
 
     @Test
+    void shouldReturnHomePageView() throws Exception {
+        mockMvc
+                .perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("start"));
+    }
+
+    @Test
     void shouldReturnDisorderViewWithPrefilledData() throws Exception {
 
         Disorder depression = new Disorder();
