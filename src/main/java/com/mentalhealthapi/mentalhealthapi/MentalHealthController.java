@@ -2,16 +2,15 @@ package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
+import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
 import com.mentalhealthapi.mentalhealthapi.service.DisorderServiceStub;
+import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
 import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Here is our end points. The C of MVC
@@ -44,7 +43,9 @@ public class MentalHealthController {
      * @return
      */
     @RequestMapping("/blog")
-    public String blog() {
+    public String blog(Model model) {
+        IBlogService blogService = new BlogServiceStub();
+        model.addAttribute("blogs", blogService.fetchAll());
         return "blog";
     }
 
