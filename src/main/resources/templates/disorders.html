@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="disorder : ${ disorders }" th:scope="row">
+                    <tr th:each="disorder : ${ disorders }">
                         <td><span th:text="${ disorder.name }"> Name </span></td>
                         <td><span th:text="${ disorder.description }"> Description </span></td>
                         <td><span th:text="${ disorder.dsm5Page }"> DSM 5 Page </span></td>
