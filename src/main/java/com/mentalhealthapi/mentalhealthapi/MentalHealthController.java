@@ -1,9 +1,9 @@
 package com.mentalhealthapi.mentalhealthapi;
 
-import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
-import com.mentalhealthapi.mentalhealthapi.service.DisorderServiceStub;
-import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
-import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
+import com.mentalhealthapi.mentalhealthapi.dao.BlogServiceStub;
+import com.mentalhealthapi.mentalhealthapi.dao.DisorderServiceStub;
+import com.mentalhealthapi.mentalhealthapi.dao.IBlogService;
+import com.mentalhealthapi.mentalhealthapi.dao.IDisorderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -2,8 +2,8 @@ package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
-import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
-import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
+import com.mentalhealthapi.mentalhealthapi.dao.IBlogService;
+import com.mentalhealthapi.mentalhealthapi.dao.IDisorderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
