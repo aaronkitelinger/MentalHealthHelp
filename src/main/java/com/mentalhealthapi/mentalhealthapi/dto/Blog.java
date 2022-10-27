@@ -4,7 +4,6 @@ import lombok.Data;
 
 public @Data class Blog {
     private int id;
-    private String username;
     private String disorderName;
     private String title;
     private String body;
