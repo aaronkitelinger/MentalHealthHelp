@@ -1,4 +1,4 @@
-package com.mentalhealthapi.mentalhealthapi.dao;
+package com.mentalhealthapi.mentalhealthapi.service;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 import org.springframework.stereotype.Service;
