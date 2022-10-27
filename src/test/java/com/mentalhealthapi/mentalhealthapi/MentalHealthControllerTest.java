@@ -1,7 +1,8 @@
 package com.mentalhealthapi.mentalhealthapi;
-
+import com.mentalhealthapi.mentalhealthapi.dao.IBlogDatabaseAccess;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
+import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
 import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
 import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(MentalHealthController.class)
@@ -24,32 +26,25 @@ public class MentalHealthControllerTest {
     MockMvc mockMvc;
     @MockBean
     IDisorderService disorderService;
-
     @MockBean
     IBlogService blogService;
+    @MockBean
+    IBlogDatabaseAccess blogDAO;
+
+    Blog mockBlog = createMockBlog();
+
+    private Blog createMockBlog() {
+        Blog mockBlog = new Blog();
+        mockBlog.setDisorderName("TEST");
+        mockBlog.setTitle("TITLE HERE");
+        mockBlog.setBody("This is the body text of this blog. Example Text: A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder.");
+        return mockBlog;
+    }
 
     @Test
-    void shouldReturnBlogViewWirthPrefilledData() throws Exception {
-
-        Blog blog1 = new Blog();
-        blog1.setDisorderName("Depression");
-        blog1.setTitle("Day 1");
-        blog1.setBody("This is the body text of this blog. Example Text: A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder.");
-
-        Blog blog2 = new Blog();
-        blog2.setDisorderName("Bipolar Disorder");
-        blog2.setTitle("Day 1");
-        blog2.setBody("This is the body text of this blog. Example Text: A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder.");
-
-        Blog blog3 = new Blog();
-        blog3.setDisorderName("RAD");
-        blog3.setTitle("Day 1");
-        blog3.setBody("This is the body text of this blog. Example Text: A group of conditions associated with the elevation or lowering of a person's mood, such as depression or bipolar disorder.");
-
+    void shouldReturnBlogViewWithPrefilledData() throws Exception {
         List<Blog> blogs = new ArrayList<>();
-        blogs.add(blog1);
-        blogs.add(blog2);
-        blogs.add(blog3);
+        blogs.add(mockBlog);
 
         when(blogService.fetchAll()).thenReturn(blogs);
 
@@ -94,5 +89,26 @@ public class MentalHealthControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("disorders"))
                 .andExpect(model().attributeExists("disorders"));
+    }
+
+    @Test
+    void shouldCreateBlogPostByUser() throws Exception {
+        when(blogDAO.save(mockBlog)).thenReturn(mockBlog);
+        blogService = new BlogServiceStub(blogDAO);
+
+//        mockMvc
+//                .perform(MockMvcRequestBuilders.post("/blog"))
+//                .andExpect(status().isOk());
+
+        Blog newBlog = blogService.save(mockBlog);
+        assertEquals(mockBlog, newBlog);
+        verify(blogDAO, atLeastOnce()).save(mockBlog);
+    }
+
+    @Test
+    void shouldDeleteBlogPostByUser() throws Exception {
+        mockMvc
+                .perform(MockMvcRequestBuilders.delete("/blog/1/"))
+                .andExpect(status().isOk());
     }
 }
