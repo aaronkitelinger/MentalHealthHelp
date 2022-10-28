@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlogServiceStub implements IBlogService{
-
     /**
      * Fetch all blogs - regardless the user
      *
      * @return a list of blogs
+     *
      */
     @Override
     public List<Blog> fetchAll() {

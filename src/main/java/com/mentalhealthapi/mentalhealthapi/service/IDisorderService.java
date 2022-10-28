@@ -7,7 +7,6 @@ import java.util.List;
 
 @Service
 public interface IDisorderService {
-
     /**
      * Fetch all disorders
      * @return
