@@ -2,7 +2,7 @@ package com.mentalhealthapi.mentalhealthapi.dto;
 
 import lombok.Data;
 
-public @Data class Blog {
+public @Data class BlogEntry {
     private int id;
     private String disorderName;
     private String title;

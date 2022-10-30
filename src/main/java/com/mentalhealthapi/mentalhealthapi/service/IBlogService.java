@@ -1,6 +1,6 @@
 package com.mentalhealthapi.mentalhealthapi.service;
 
-import com.mentalhealthapi.mentalhealthapi.dto.Blog;
+import com.mentalhealthapi.mentalhealthapi.dto.BlogEntry;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface IBlogService {
      * Fetch all blogs - regardless the user
      * @return a list of blogs
      */
-    List<Blog> fetchAll();
+    List<BlogEntry> fetchAll();
 
     /**
      * Delete a blog given the id
@@ -20,8 +20,8 @@ public interface IBlogService {
 
     /**
      * Save a blog
-     * @param blog1
+     * @param blogEntry1
      * @return
      */
-    Blog save(Blog blog1) throws Exception;
+    BlogEntry save(BlogEntry blogEntry1) throws Exception;
 }

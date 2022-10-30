@@ -1,6 +1,6 @@
 package com.mentalhealthapi.mentalhealthapi;
 
-import com.mentalhealthapi.mentalhealthapi.dto.Blog;
+import com.mentalhealthapi.mentalhealthapi.dto.BlogEntry;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,12 +36,12 @@ public class MentalHealthController {
 
     /**
      * Create a new blog.
-     * @param blog
+     * @param blogEntry
      * @return the new blog that was created (for now)
      */
     @PostMapping(value = "/blog", consumes = "application/json", produces = "application/json")
-    public Blog createBlog(@RequestBody Blog blog) {
-        return blog;
+    public BlogEntry createBlog(@RequestBody BlogEntry blogEntry) {
+        return blogEntry;
     }
 
     /**
