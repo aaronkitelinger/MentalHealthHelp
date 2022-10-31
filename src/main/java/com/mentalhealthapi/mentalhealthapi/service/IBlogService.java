@@ -13,6 +13,13 @@ public interface IBlogService {
     List<Blog> fetchAll();
 
     /**
+     * Fetch blog using an ID
+     * @param id a unique identifier for a blog
+     * @return blog or null if none
+     */
+    Blog fetchById(int id);
+
+    /**
      * Delete a blog given the id
      * @param id
      */
