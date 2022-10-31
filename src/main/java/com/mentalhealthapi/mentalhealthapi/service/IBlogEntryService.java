@@ -4,22 +4,22 @@ import com.mentalhealthapi.mentalhealthapi.dto.BlogEntry;
 
 import java.util.List;
 
-public interface IBlogService {
+public interface IBlogEntryService {
 
     /**
-     * Fetch all blogs - regardless the user
-     * @return a list of blogs
+     * Fetch all blog entries - regardless the user
+     * @return a list of blog entries
      */
     List<BlogEntry> fetchAll();
 
     /**
-     * Delete a blog given the id
+     * Delete a blog entry given the id
      * @param id
      */
     void deleteById(int id);
 
     /**
-     * Save a blog
+     * Save a blog entry
      * @param blogEntry1
      * @return
      */

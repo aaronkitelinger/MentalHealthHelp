@@ -5,7 +5,7 @@ import com.mentalhealthapi.mentalhealthapi.dto.BlogEntry;
 public interface IBlogDatabaseAccess {
 
     /**
-     * Save a blog.
+     * Save a blog entry.
      * @param blogEntry1
      * @return
      */

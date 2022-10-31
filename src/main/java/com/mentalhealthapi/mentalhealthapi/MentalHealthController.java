@@ -35,9 +35,9 @@ public class MentalHealthController {
 
 
     /**
-     * Create a new blog.
+     * Create a new blog entry.
      * @param blogEntry
-     * @return the new blog that was created (for now)
+     * @return the new blog entry that was created (for now)
      */
     @PostMapping(value = "/blog", consumes = "application/json", produces = "application/json")
     public BlogEntry createBlog(@RequestBody BlogEntry blogEntry) {
@@ -45,7 +45,7 @@ public class MentalHealthController {
     }
 
     /**
-     * Delete a blog given the id of the blog (and the username)
+     * Delete a blog entry given the id of the blog entry(and the username)
      * @param id
      * @return
      */
