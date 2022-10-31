@@ -6,7 +6,7 @@ import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlogServiceStub {
+public class BlogServiceStub implements IBlogService {
 
     private IBlogDatabaseAccess blogDAO;
 
@@ -20,7 +20,7 @@ public class BlogServiceStub {
      *
      * @return a list of blogs
      */
-
+    @Override
     public List<Blog> fetchAll() {
         Blog blog1 = new Blog();
         blog1.setDisorderName("Depression");
@@ -50,7 +50,7 @@ public class BlogServiceStub {
      *
      * @param id
      */
-
+    @Override
     public void deleteById(int id) {
         System.out.println("Blog deleted. Blog Id: " + id);
     }
@@ -61,7 +61,7 @@ public class BlogServiceStub {
      * @param blog1
      * @return
      */
-
+    @Override
     public Blog save(Blog blog1) throws Exception {
         return blogDAO.save(blog1);
     }

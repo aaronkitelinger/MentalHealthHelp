@@ -1,10 +1,13 @@
 package com.mentalhealthapi.mentalhealthapi;
 
+import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
+import com.mentalhealthapi.mentalhealthapi.service.DisorderServiceStub;
+import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
+import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MentalHealthController {
@@ -22,17 +25,25 @@ public class MentalHealthController {
      * Go to Disorders page on /disorders
      * @return
      */
-
+    @GetMapping("/disorders")
+    public String disorders(Model model) {
         // TODO: Use real implementation instead of STUB when we have a database
-
+        IDisorderService disorderService = new DisorderServiceStub();
+        model.addAttribute("disorders", disorderService.fetchAllDisorders());
+        return "disorders";
+    }
 
     /**
      * Go to Your Stories page on /blog
      * @return
      */
-
+    @GetMapping("/blog")
+    public String blog(Model model) {
         // TODO: Use real implementation instead of STUB when we have a database
-
+        IBlogService blogService = new BlogServiceStub();
+        model.addAttribute("blogs", blogService.fetchAll());
+        return "blog";
+    }
 
     /**
      * Create a new blog.
@@ -49,6 +60,11 @@ public class MentalHealthController {
      * @param id
      * @return
      */
-
+    @DeleteMapping("/blog/{id}/")
+    public String deleteBlog(@PathVariable("id") int id) {
+        IBlogService blogService = new BlogServiceStub();
+        blogService.deleteById(id);
+        return "blog";
+    }
 
 }
