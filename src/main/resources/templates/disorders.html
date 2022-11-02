@@ -25,16 +25,12 @@
                     <tr class="table-dark align-middle">
                         <th>Name</th>
                         <th>Description</th>
-                        <th>DSM 5 Page</th>
-                        <th>Population Percent</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="disorder : ${ disorders }">
                         <td><span th:text="${ disorder.name }"> Name </span></td>
                         <td><span th:text="${ disorder.description }"> Description </span></td>
-                        <td><span th:text="${ disorder.dsm5Page }"> DSM 5 Page </span></td>
-                        <td><span th:text="${ disorder.populationPercent }"> Population Percent </span></td>
                     </tr>
                 </tbody>
             </table>
