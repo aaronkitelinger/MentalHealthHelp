@@ -2,6 +2,9 @@ package com.mentalhealthapi.mentalhealthapi.dao;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 
+import java.util.List;
+import java.util.Map;
+
 public interface IBlogDatabaseAccess {
 
     /**
