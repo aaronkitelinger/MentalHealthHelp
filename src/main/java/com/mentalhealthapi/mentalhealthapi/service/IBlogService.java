@@ -16,12 +16,12 @@ public interface IBlogService {
      * Delete a blog given the id
      * @param id
      */
-    void deleteById(int id);
+    void deleteById(int id) throws Exception;
 
     /**
      * Save a blog
-     * @param blog1
+     * @param blog
      * @return
      */
-    Blog save(Blog blog1) throws Exception;
+    Blog save(Blog blog);
 }
