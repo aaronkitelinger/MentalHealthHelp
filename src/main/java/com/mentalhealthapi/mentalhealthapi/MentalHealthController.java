@@ -2,23 +2,24 @@ package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dao.BlogDatabaseAccessStub;
 import com.mentalhealthapi.mentalhealthapi.dao.DisorderDatabaseAccessStub;
-import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
-import com.mentalhealthapi.mentalhealthapi.service.DisorderServiceStub;
-import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
-import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
+import com.mentalhealthapi.mentalhealthapi.service.BlogService;
+import com.mentalhealthapi.mentalhealthapi.service.DisorderService;
+import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
+import com.mentalhealthapi.mentalhealthapi.service.interfaces.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class MentalHealthController {
 
-    IDisorderService disorderService = new DisorderServiceStub(new DisorderDatabaseAccessStub());
-    IBlogService blogService = new BlogServiceStub(new BlogDatabaseAccessStub());
+    Logger logger = LoggerFactory.getLogger(MentalHealthController.class);
+
+    IDisorderService disorderService = new DisorderService(new DisorderDatabaseAccessStub());
+    IBlogService blogService = new BlogService(new BlogDatabaseAccessStub());
 
     /**
      * Root end point (/).
@@ -35,7 +36,6 @@ public class MentalHealthController {
      */
     @GetMapping("/disorders")
     public String disorders(Model model) {
-        // TODO: Use real implementation instead of STUB when we have a database
         model.addAttribute("disorders", disorderService.fetchAllDisorders());
         return "disorders";
     }
@@ -46,7 +46,6 @@ public class MentalHealthController {
      */
     @GetMapping("/blog")
     public String blog(Model model) {
-        // TODO: Use real implementation instead of STUB when we have a database
         model.addAttribute("blogs", blogService.fetchAll());
         return "blog";
     }
