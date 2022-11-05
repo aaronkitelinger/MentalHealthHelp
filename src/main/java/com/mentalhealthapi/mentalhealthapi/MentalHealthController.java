@@ -7,6 +7,9 @@ import com.mentalhealthapi.mentalhealthapi.service.DisorderService;
 import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
 import com.mentalhealthapi.mentalhealthapi.service.interfaces.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -66,12 +69,13 @@ public class MentalHealthController {
      * @return
      */
     @DeleteMapping("/blog/{id}/")
-    public ResponseEntity<HttpStatus> deleteBlog(@PathVariable("id") int id) {
+    public String deleteBlog(@PathVariable("id") int id) {
         try {
             blogService.deleteById(id);
-            return new ResponseEntity(HttpStatus.OK);
+            return "redirect:/blog";
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            logger.error("Delete error" + e);
+            return "error";
         }
     }
 }
