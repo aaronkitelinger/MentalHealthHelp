@@ -81,7 +81,7 @@ public class MentalHealthController {
             return "redirect:/blog";
         } catch (Exception e) {
             logger.error("Delete error" + e);
-            return "error";
+            return "redirect:/blog";
         }
     }
 }
