@@ -1,4 +1,4 @@
-package com.mentalhealthapi.mentalhealthapi.service;
+package com.mentalhealthapi.mentalhealthapi.service.interfaces;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 

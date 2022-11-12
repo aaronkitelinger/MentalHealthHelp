@@ -1,4 +1,4 @@
-package com.mentalhealthapi.mentalhealthapi.dao;
+package com.mentalhealthapi.mentalhealthapi.dao.interfaces;
 
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 

@@ -1,10 +1,11 @@
 package com.mentalhealthapi.mentalhealthapi;
-import com.mentalhealthapi.mentalhealthapi.dao.IBlogDatabaseAccess;
+import com.mentalhealthapi.mentalhealthapi.dao.interfaces.IBlogDatabaseAccess;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
-import com.mentalhealthapi.mentalhealthapi.service.BlogServiceStub;
-import com.mentalhealthapi.mentalhealthapi.service.IBlogService;
-import com.mentalhealthapi.mentalhealthapi.service.IDisorderService;
+import com.mentalhealthapi.mentalhealthapi.service.BlogService;
+import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
+import com.mentalhealthapi.mentalhealthapi.service.interfaces.IDisorderService;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -94,7 +95,7 @@ public class MentalHealthControllerTest {
     @Test
     void shouldCreateBlogPostByUser() throws Exception {
         when(blogDAO.save(mockBlog)).thenReturn(mockBlog);
-        blogService = new BlogServiceStub(blogDAO);
+        blogService = new BlogService(blogDAO);
 
 //        mockMvc
 //                .perform(MockMvcRequestBuilders.post("/blog"))

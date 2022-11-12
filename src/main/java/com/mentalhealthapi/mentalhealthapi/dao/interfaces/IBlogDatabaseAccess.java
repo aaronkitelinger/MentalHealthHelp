@@ -1,9 +1,7 @@
-package com.mentalhealthapi.mentalhealthapi.dao;
-
-import com.mentalhealthapi.mentalhealthapi.dto.Blog;
+package com.mentalhealthapi.mentalhealthapi.dao.interfaces;
 
 import java.util.List;
-import java.util.Map;
+import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 
 public interface IBlogDatabaseAccess {
 
