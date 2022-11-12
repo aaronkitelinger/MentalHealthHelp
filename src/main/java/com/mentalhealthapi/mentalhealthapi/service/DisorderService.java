@@ -15,7 +15,7 @@ public class DisorderService implements IDisorderService {
     }
 
     @Override
-    public List<Disorder> fetchAllDisorders() {
+    public List<Disorder> fetchAll() {
         return disorderDAO.fetchAll();
     }
     

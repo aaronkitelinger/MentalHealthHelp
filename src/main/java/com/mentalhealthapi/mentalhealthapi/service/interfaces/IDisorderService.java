@@ -10,7 +10,7 @@ public interface IDisorderService {
 
     /**
      * Fetch all disorders
-     * @return
+     * @return a list of disorders.
      */
-    List<Disorder> fetchAllDisorders();
+    List<Disorder> fetchAll();
 }

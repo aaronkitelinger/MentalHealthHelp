@@ -8,7 +8,7 @@ public interface IDisorderDatabaseAccess {
 
     /**
      * Fetch all disorders.
-     * @return
+     * @return a list of disorders.
      */
     List<Disorder> fetchAll();
 }

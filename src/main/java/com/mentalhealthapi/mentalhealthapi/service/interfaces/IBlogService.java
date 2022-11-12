@@ -14,14 +14,14 @@ public interface IBlogService {
 
     /**
      * Delete a blog given the id
-     * @param id
+     * @param id id of the blog object to delete.
      */
     void deleteById(int id) throws Exception;
 
     /**
      * Save a blog
-     * @param blog
-     * @return
+     * @param blog object to save.
+     * @return the saved object.
      */
     Blog save(Blog blog);
 }

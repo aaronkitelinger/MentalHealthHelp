@@ -34,30 +34,30 @@ public class MentalHealthController {
 
     /**
      * Go to Disorders page on /disorders
-     * @return
+     * @return template name to direct user to.
      */
     @GetMapping("/disorders")
     public String disorders(Model model) {
-        model.addAttribute("disorders", disorderService.fetchAllDisorders());
+        model.addAttribute("disorders", disorderService.fetchAll());
         return "disorders";
     }
 
     /**
      * Go to Your Stories page on /blog
-     * @return
+     * @return template name to direct user to.
      */
     @GetMapping("/blog")
     public String blog(Model model) {
         model.addAttribute("blog", new Blog());
-        model.addAttribute("disorders", disorderService.fetchAllDisorders());
+        model.addAttribute("disorders", disorderService.fetchAll());
         model.addAttribute("blogs", blogService.fetchAll());
         return "blog";
     }
 
     /**
      * Create a new blog.
-     * @param blog
-     * @return the new blog that was created (for now)
+     * @param blog blog object to create.
+     * @return template to redirect the user to. On success: /blog, On error: /error.
      */
     @PostMapping(value = "/blog", consumes = "application/x-www-form-urlencoded")
     public String createBlog(Blog blog) {
@@ -70,9 +70,9 @@ public class MentalHealthController {
     }
 
     /**
-     * Delete a blog given the id of the blog (and the username)
-     * @param id
-     * @return
+     * Delete a blog given the id of the blog
+     * @param id Id of the blog to delete.
+     * @return template to redirect the user to. On success: /blog, On error: /error.
      */
     @DeleteMapping("/blog/{id}/")
     public String deleteBlog(@PathVariable("id") int id) {
@@ -81,7 +81,7 @@ public class MentalHealthController {
             return "redirect:/blog";
         } catch (Exception e) {
             logger.error("Delete error" + e);
-            return "redirect:/blog";
+            return "redirect:/error";
         }
     }
 }

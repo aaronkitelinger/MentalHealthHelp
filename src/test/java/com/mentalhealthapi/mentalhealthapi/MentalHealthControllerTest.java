@@ -83,7 +83,7 @@ public class MentalHealthControllerTest {
         List<Disorder> disorders = new ArrayList<>();
         disorders.add(depression);
 
-        when(disorderService.fetchAllDisorders()).thenReturn(disorders);
+        when(disorderService.fetchAll()).thenReturn(disorders);
 
         mockMvc
                 .perform(MockMvcRequestBuilders.get("/disorders"))
