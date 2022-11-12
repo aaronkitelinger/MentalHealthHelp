@@ -21,6 +21,37 @@
 
     <main>
 
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        New Blog
+      </button>
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header p-0">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">New Blog</h1>
+              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+              <form th:action="@{/blog}" th:object="${blog}" th:method="post" class="m-2">
+                <select class="form-select mb-3" aria-label="disorder selection" th:field="*{disorderName}">
+                  <option th:each="disorder : ${disorders}" th:value="${disorder.name}" th:text="${disorder.name}" th:selected="${disorder.name}"></option>
+                </select>
+        
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Title of your blog..." th:field="*{title}">
+                </div>
+        
+                <textarea class="form-control mb-3" placeholder="Enter the body..." th:field="*{body}"></textarea>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+
       <div class="card my-2" th:each="blog : ${ blogs }">
         <h5 class="card-header" th:text="${ blog.disorderName }"></h5>
         <div class="card-body">

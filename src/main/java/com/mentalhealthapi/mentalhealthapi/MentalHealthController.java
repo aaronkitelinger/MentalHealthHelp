@@ -8,11 +8,10 @@ import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
 import com.mentalhealthapi.mentalhealthapi.service.interfaces.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +48,8 @@ public class MentalHealthController {
      */
     @GetMapping("/blog")
     public String blog(Model model) {
+        model.addAttribute("blog", new Blog());
+        model.addAttribute("disorders", disorderService.fetchAllDisorders());
         model.addAttribute("blogs", blogService.fetchAll());
         return "blog";
     }
@@ -58,9 +59,14 @@ public class MentalHealthController {
      * @param blog
      * @return the new blog that was created (for now)
      */
-    @PostMapping(value = "/blog", consumes = "application/json", produces = "application/json")
-    public Blog createBlog(@RequestBody Blog blog) {
-        return blogService.save(blog);
+    @PostMapping(value = "/blog", consumes = "application/x-www-form-urlencoded")
+    public String createBlog(Blog blog) {
+        try {
+            Blog newBlog = blogService.save(blog);
+            return "redirect:/blog";
+        } catch (Exception e) {
+            return "redirect:/error";
+        }
     }
 
     /**
