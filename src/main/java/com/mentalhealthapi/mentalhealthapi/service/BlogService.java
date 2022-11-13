@@ -15,6 +15,18 @@ public class BlogService implements IBlogService {
     }
 
     @Override
+    public Blog GetBlogById(int id) {
+        return blogDAO.GetBlog(id);
+    }
+
+    @Override
+    public Blog Edit(Blog blog) {
+        return blogDAO.Edit(blog);
+    }
+
+
+
+    @Override
     public List<Blog> fetchAll() {
         return blogDAO.fetchAll();
     }

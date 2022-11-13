@@ -7,6 +7,16 @@ import java.util.List;
 public interface IBlogService {
 
     /**
+     * Get Blog by Id
+     */
+    Blog GetBlogById(int id);
+    /**
+     * Fetch blog based on user
+     * @return a blog
+    **/
+    Blog Edit(Blog blog);
+    /**
+
      * Fetch all blogs - regardless the user
      * @return a list of blogs
      */

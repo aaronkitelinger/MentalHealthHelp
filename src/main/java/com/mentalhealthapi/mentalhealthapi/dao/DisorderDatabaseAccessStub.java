@@ -1,12 +1,17 @@
 package com.mentalhealthapi.mentalhealthapi.dao;
 
 import com.mentalhealthapi.mentalhealthapi.dao.interfaces.IDisorderDatabaseAccess;
+import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DisorderDatabaseAccessStub implements IDisorderDatabaseAccess {
+
+    Map<Integer, Disorder> disorders = new HashMap<>();
     @Override
     public List<Disorder> fetchAll() {
         Disorder depression = new Disorder();
@@ -22,5 +27,11 @@ public class DisorderDatabaseAccessStub implements IDisorderDatabaseAccess {
         disorders.add(bipolar);
 
         return disorders;
+    }
+
+    @Override
+    public void delete(int id) {
+        disorders.remove(id);
+
     }
 }

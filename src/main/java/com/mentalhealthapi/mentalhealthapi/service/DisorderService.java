@@ -15,8 +15,16 @@ public class DisorderService implements IDisorderService {
     }
 
     @Override
+    public void DeleteDisorderById(int id) throws Exception {
+
+        disorderDAO.delete(id);
+    }
+
+    @Override
     public List<Disorder> fetchAll() {
         return disorderDAO.fetchAll();
     }
+
+
     
 }

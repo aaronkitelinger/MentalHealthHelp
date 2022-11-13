@@ -55,6 +55,20 @@ public class MentalHealthController {
     }
 
     /**
+     * Go to blog by id
+     */
+    @GetMapping("/blog/{id}")
+    public String getblog(@PathVariable("id") int id){
+        try{
+            blogService.GetBlogById(id);
+            return "redirect:/blog";
+        } catch (Exception e) {
+            logger.error("Get error" + e);
+            return  "redirect:/blog";
+        }
+    }
+
+    /**
      * Create a new blog.
      * @param blog blog object to create.
      * @return template to redirect the user to. On success: /blog, On error: /error.

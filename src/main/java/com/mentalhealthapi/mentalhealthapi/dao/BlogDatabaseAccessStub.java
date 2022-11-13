@@ -58,4 +58,21 @@ public class BlogDatabaseAccessStub implements IBlogDatabaseAccess {
     public List<Blog> fetchAll() {
         return new ArrayList<>(blogs.values());
     }
+
+    @Override
+    public Blog Edit(Blog blog){
+        Blog editedBlog = new Blog();
+
+        editedBlog.setId(blog.getId());
+        editedBlog.setBody(blog.getBody());
+        editedBlog.setDisorderName(blog.getDisorderName());
+        editedBlog.setTitle(blog.getTitle());
+        return editedBlog;
+
+    }
+    @Override
+    public Blog GetBlog(int id){
+        Blog blog = blogs.get(id);
+        return blog;
+    }
 }
