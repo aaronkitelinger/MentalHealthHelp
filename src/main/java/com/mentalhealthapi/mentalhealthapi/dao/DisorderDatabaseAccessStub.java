@@ -30,6 +30,21 @@ public class DisorderDatabaseAccessStub implements IDisorderDatabaseAccess {
     }
 
     @Override
+    public Disorder GetDisorder(int id) {
+        return null;
+    }
+
+    @Override
+    public Disorder Edit(Disorder disorder) {
+        return null;
+    }
+
+    @Override
+    public Disorder save(Disorder disorder) {
+        return null;
+    }
+
+    @Override
     public void delete(int id) {
         disorders.remove(id);
 
