@@ -92,6 +92,7 @@ public class MentalHealthControllerTest {
                 .andExpect(model().attributeExists("disorders"));
     }
 
+
     @Test
     void shouldCreateBlogPostByUser() throws Exception {
         when(blogDAO.save(mockBlog)).thenReturn(mockBlog);
@@ -105,11 +106,13 @@ public class MentalHealthControllerTest {
         assertEquals(mockBlog, newBlog);
         verify(blogDAO, atLeastOnce()).save(mockBlog);
     }
-
+/*
     @Test
     void shouldDeleteBlogPostByUser() throws Exception {
         mockMvc
                 .perform(MockMvcRequestBuilders.delete("/blog/1/"))
                 .andExpect(status().isOk());
     }
+
+ */
 }
