@@ -18,7 +18,7 @@ public interface IDisorderDatabaseAccess {
      */
     List<Disorder> fetchAll();
 
-    Disorder GetDisorder(int id);
+    Disorder GetDisorder(int disorderId);
     /**
      * Edit a disorder
      * @param disorder

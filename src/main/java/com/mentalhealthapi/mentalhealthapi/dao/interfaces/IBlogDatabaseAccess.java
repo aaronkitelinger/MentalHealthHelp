@@ -24,7 +24,7 @@ public interface IBlogDatabaseAccess {
      * @param blog
      * @return the saved blog object.
      */
-    Blog save(Blog blog);
+    Blog save(Blog blog) throws Exception;
 
     /**
      * Delete a blog given an id.

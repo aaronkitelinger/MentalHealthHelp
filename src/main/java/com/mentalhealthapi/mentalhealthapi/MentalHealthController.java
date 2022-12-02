@@ -1,7 +1,9 @@
 package com.mentalhealthapi.mentalhealthapi;
 
 import com.mentalhealthapi.mentalhealthapi.dao.BlogDatabaseAccessStub;
+import com.mentalhealthapi.mentalhealthapi.dao.BlogSQLDAO;
 import com.mentalhealthapi.mentalhealthapi.dao.DisorderDatabaseAccessStub;
+import com.mentalhealthapi.mentalhealthapi.dao.DisorderSQLDAO;
 import com.mentalhealthapi.mentalhealthapi.service.BlogService;
 import com.mentalhealthapi.mentalhealthapi.service.DisorderService;
 import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
@@ -20,8 +22,8 @@ public class MentalHealthController {
 
     Logger logger = LoggerFactory.getLogger(MentalHealthController.class);
 
-    IDisorderService disorderService = new DisorderService(new DisorderDatabaseAccessStub());
-    IBlogService blogService = new BlogService(new BlogDatabaseAccessStub());
+    IDisorderService disorderService = new DisorderService(new DisorderSQLDAO());
+    IBlogService blogService = new BlogService(new BlogSQLDAO());
 
     /**
      * Root end point (/).
@@ -49,7 +51,7 @@ public class MentalHealthController {
     @GetMapping("/blog")
     public String blog(Model model) {
         model.addAttribute("blog", new Blog());
-        model.addAttribute("disorders", disorderService.fetchAll());
+       //model.addAttribute("disorders", disorderService.fetchAll());
         model.addAttribute("blogs", blogService.fetchAll());
         return "blog";
     }
@@ -57,7 +59,7 @@ public class MentalHealthController {
     /**
      * Go to blog by id
      */
-    @GetMapping("/blog/{id}")
+    @GetMapping("/blog/")
     public String getblog(@PathVariable("id") int id){
         try{
             blogService.GetBlogById(id);
@@ -88,7 +90,7 @@ public class MentalHealthController {
      * @param id Id of the blog to delete.
      * @return template to redirect the user to. On success: /blog, On error: /error.
      */
-    @DeleteMapping("/blog/{id}/")
+    @DeleteMapping("/blog/")
     public String deleteBlog(@PathVariable("id") int id) {
         try {
             blogService.deleteById(id);

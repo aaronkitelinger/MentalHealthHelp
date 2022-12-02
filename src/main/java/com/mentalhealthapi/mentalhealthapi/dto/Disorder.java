@@ -8,10 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public @Data class Disorder {
+public @Data
+class Disorder {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int disorderId;
     private String name;
     private String description;
 }

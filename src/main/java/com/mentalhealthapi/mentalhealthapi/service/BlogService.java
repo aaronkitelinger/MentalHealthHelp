@@ -38,6 +38,10 @@ public class BlogService implements IBlogService {
 
     @Override
     public Blog save(Blog blog) {
-        return blogDAO.save(blog);
+        try {
+            return blogDAO.save(blog);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

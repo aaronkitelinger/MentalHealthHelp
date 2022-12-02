@@ -13,7 +13,7 @@ class Blog {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int blogId;
     private String disorderName;
     private String title;
     private String body;

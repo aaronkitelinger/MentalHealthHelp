@@ -27,7 +27,7 @@ public class BlogSQLDAO implements IBlogDatabaseAccess {
     }
 
     @Override
-    public Blog save(Blog blog) {
+    public Blog save(Blog blog) throws Exception {
         Blog createdBlog = blogRepository.save(blog);
         return createdBlog;
 
