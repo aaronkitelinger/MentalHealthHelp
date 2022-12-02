@@ -8,8 +8,6 @@ import com.mentalhealthapi.mentalhealthapi.service.interfaces.IBlogService;
 import com.mentalhealthapi.mentalhealthapi.service.interfaces.IDisorderService;
 import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

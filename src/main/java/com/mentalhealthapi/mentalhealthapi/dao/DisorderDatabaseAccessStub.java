@@ -1,7 +1,6 @@
 package com.mentalhealthapi.mentalhealthapi.dao;
 
 import com.mentalhealthapi.mentalhealthapi.dao.interfaces.IDisorderDatabaseAccess;
-import com.mentalhealthapi.mentalhealthapi.dto.Blog;
 import com.mentalhealthapi.mentalhealthapi.dto.Disorder;
 
 import java.util.ArrayList;
